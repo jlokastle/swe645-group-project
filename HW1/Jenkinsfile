@@ -17,9 +17,6 @@ pipeline {
                         ant war
                         '''
 				}
-				echo "Build docker"
-				docker.build("HW1")
-				echo "Done building docker"
 				echo "Done Cloning"
             }
 
