@@ -15,11 +15,11 @@ pipeline {
                         bat'''
                         cd HW1
                         ant war
-						echo "Build docker"
-						docker build .
-						echo "Done building docker"
                         '''
 				}
+				echo "Build docker"
+				docker.build("HW1")
+				echo "Done building docker"
 				echo "Done Cloning"
             }
 
