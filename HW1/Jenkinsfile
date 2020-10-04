@@ -8,6 +8,7 @@ pipeline {
     
     stages {
         stage('Clone') {
+			echo "Cloning..."
             steps{
                 git 'https://github.com/jlokastle/swe645-group-project'
                 withAnt(installation: 'Ant1.10.8') {
@@ -17,18 +18,22 @@ pipeline {
                         '''
                 }
             }
+			echo "Done Cloning"
         }
 
         stage('Build') {
+			echo "Building..."
             steps {
                 script {
                   dockerImage = docker.build(registry + ":$BUILD_NUMBER", "./HW1")
                 }
 
             }
+			echo "Done Building"
         }
 
         stage('Deploy Image') {
+			echo "Deploying..."
             steps{
                 script{
                     docker.withRegistry('',registryCredential){
@@ -36,6 +41,7 @@ pipeline {
                     }
                 }
             }
+			echo "Done Deploying"
         }
 
         stage('Remove Unused Image') {
