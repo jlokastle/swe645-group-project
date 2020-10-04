@@ -74,7 +74,7 @@
   	  	    <mkdir dir="WebContent/WEB-INF/classes"/>
   	  	     
   	  	    <copy includeemptydirs="false" todir="WebContent/WEB-INF/classes">
-  	  	            <fileset dir="build/classes">
+  	  	            <fileset dir="target/classes">
   	  	            <include name="**/*.class"/>
   	  	            </fileset>
   	  	    </copy>
