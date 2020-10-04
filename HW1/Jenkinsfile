@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Clone') {
             steps{
-                git 'https://github.com/longofest/SWE645-group-project'
+                git 'https://github.com/jlokastle/swe645-group-project'
                 withAnt(installation: 'Ant1.10.8') {
                         bat'''
                         cd HW1
