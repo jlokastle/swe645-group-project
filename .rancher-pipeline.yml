@@ -2,7 +2,7 @@ stages:
 - name: compile
   steps:
   - runScriptConfig:
-      image: java:8
+      image: frekele/ant
       shellScript: |-
         cd HW1
         ant war
