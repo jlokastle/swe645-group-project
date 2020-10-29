@@ -1,0 +1,18 @@
+stages:
+- name: compile
+  steps:
+  - runScriptConfig:
+      image: frekele/ant
+      shellScript: |-
+        cd HW1
+        ant war
+- name: build
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./HW1/Dockerfile
+      buildContext: .
+      tag: longofest/hw1-image
+      pushRemote: true
+      registry: index.docker.io
+timeout: 60
+notification: {}
